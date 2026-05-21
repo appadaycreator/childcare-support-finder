@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>育児支援・給付金チェッカー | 児童手当・高校無償化・幼保無償化を自動チェック</title>
+<meta name="description" content="子どもの年齢・世帯年収・状況から受けられる育児支援・給付金・補助金を自動チェック。児童手当・高校無償化・幼保無償化など全制度を網羅！">
+<link rel="canonical" href="https://appadaycreator.github.io/childcare-support-finder/">
+<meta property="og:title" content="育児支援・給付金チェッカー | 受けられる給付金を自動チェック">
+<meta property="og:description" content="子どもの年齢・世帯年収から育児支援・給付金・補助金を自動チェック！">
+<meta property="og:url" content="https://appadaycreator.github.io/childcare-support-finder/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "育児支援・給付金チェッカー",
+  "url": "https://appadaycreator.github.io/childcare-support-finder/",
+  "description": "子どもの年齢・世帯年収から受けられる育児支援・給付金を自動チェック",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<!-- GTM -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","s3t9vl8h3v");</script>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-pink-50 to-purple-50 min-h-screen">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+window.onerror=function(m,s,l,c,e){console.warn('Error:',m);return true;};
+window.addEventListener('unhandledrejection',function(e){console.warn('Rejection:',e.reason);});
+</script>
+
+<div class="max-w-2xl mx-auto px-4 py-6">
+  <div class="text-center mb-6">
+    <h1 class="text-2xl font-bold text-purple-700 mb-2">👶 育児支援・給付金チェッカー</h1>
+    <p class="text-gray-600 text-sm">あなたが受けられる育児支援・給付金を自動でチェックします</p>
+  </div>
+
+  <div class="mb-4 text-center">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div id="quizArea" class="bg-white rounded-2xl shadow-lg p-6">
+    <div class="mb-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm text-gray-500">質問 <span id="qNum">1</span>/8</span>
+        <span class="text-sm text-purple-600 font-medium"><span id="qPct">12</span>%</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2">
+        <div id="progressBar" class="bg-purple-500 h-2 rounded-full transition-all duration-500" style="width:12%"></div>
+      </div>
+    </div>
+    <div id="questionContainer"></div>
+    <div class="flex gap-3 mt-4">
+      <button id="backBtn" onclick="prevQ()" class="hidden flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 rounded-xl transition-colors">← 戻る</button>
+      <button onclick="nextQ()" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition-colors">次へ →</button>
+    </div>
+  </div>
+
+  <div id="resultArea" class="hidden">
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-4">
+      <div class="text-center mb-4">
+        <div class="text-5xl mb-2">💰</div>
+        <h2 class="text-xl font-bold text-gray-800 mb-1">あなたが受けられる給付金・支援</h2>
+        <p class="text-sm text-gray-500">※2026年5月時点の制度に基づく診断です。詳細は各窓口にお問い合わせください</p>
+      </div>
+
+      <div id="benefitsList" class="space-y-3 mb-4"></div>
+
+      <div class="bg-purple-50 rounded-xl p-4 mb-4">
+        <h3 class="font-bold text-purple-800 mb-2">📋 申請窓口リスト</h3>
+        <div id="windowList" class="text-sm text-purple-700 space-y-1"></div>
+      </div>
+
+      <div class="bg-yellow-50 rounded-xl p-3 mb-4">
+        <p class="text-xs text-yellow-700">⚠️ 本診断はあくまで目安です。実際の受給可否は年収・自治体・申請時期により異なります。</p>
+      </div>
+
+      <div class="border border-purple-200 rounded-xl p-4 bg-purple-50 mb-4">
+        <p class="text-sm font-bold text-purple-700 mb-2">📚 子育て支援・プログラミング教室</p>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4AVDG6+4Y0S22+45KQ+5YJRM" target="_blank" rel="nofollow" class="block bg-purple-600 hover:bg-purple-700 text-white text-center py-2 px-4 rounded-lg text-sm font-medium mb-2">
+          🖥️ LITALICOワンダー（子ども向けIT教育）
+        </a>
+        <img src="https://www11.a8.net/0.gif?a8mat=4AVDG6+4Y0S22+45KQ+5YRHE" width="1" height="1" style="display:none" alt="">
+        <a href="https://www.amazon.co.jp/s?k=子育て+育児+補助金+本&tag=appadaycrea0f-22" target="_blank" class="block bg-orange-500 hover:bg-orange-600 text-white text-center py-2 px-4 rounded-lg text-sm font-medium">
+          🛒 Amazon で子育て本を探す
+        </a>
+      </div>
+
+      <button onclick="restart()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition-colors">
+        🔄 もう一度診断する
+      </button>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow p-4">
+      <h3 class="text-sm font-bold text-gray-700 mb-3">🔗 関連サービス</h3>
+      <div class="grid grid-cols-1 gap-2">
+        <a href="https://appadaycreator.github.io/nursery-finder/" class="flex items-center p-2 bg-gray-50 rounded-lg hover:bg-gray-100">
+          <span class="text-lg mr-2">🏫</span><span class="text-sm text-gray-700">保育園・幼稚園検索</span>
+        </a>
+        <a href="https://appadaycreator.github.io/kids-activity-finder/" class="flex items-center p-2 bg-gray-50 rounded-lg hover:bg-gray-100">
+          <span class="text-lg mr-2">⚽</span><span class="text-sm text-gray-700">子ども習い事検索</span>
+        </a>
+        <a href="https://appadaycreator.github.io/kids-english-advisor/" class="flex items-center p-2 bg-gray-50 rounded-lg hover:bg-gray-100">
+          <span class="text-lg mr-2">🌟</span><span class="text-sm text-gray-700">子ども英語アドバイザー</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+  {id:'childAge', q:'Q1. 子どもの年齢（最年少）は？', opts:['0歳（産前・産後含む）','1〜2歳（未就園）','3〜5歳（保育園・幼稚園）','6〜11歳（小学生）','12〜14歳（中学生）','15〜18歳（高校生）','18歳以上（大学生以上）']},
+  {id:'income', q:'Q2. 世帯年収はおおよそどのくらい？', opts:['200万円未満','200〜350万円','350〜500万円','500〜800万円','800〜1000万円','1000万円以上']},
+  {id:'area', q:'Q3. お住まいの自治体は？', opts:['政令指定都市・東京23区','その他の市','町・村（人口3万人以下）']},
+  {id:'nursery', q:'Q4. 保育園・幼稚園の利用状況は？', opts:['利用していない（家庭保育）','認可保育園を利用中','認定こども園・幼稚園を利用中','認可外保育施設を利用中']},
+  {id:'childleave', q:'Q5. 育児休業の取得状況は？', opts:['取得中（または取得予定）','取得済み・復職済み','取得していない（自営業・フリーランス等）']},
+  {id:'singleParent', q:'Q6. ひとり親家庭ですか？', opts:['いいえ（両親がいる）','はい（離婚・死別）','事実婚・未婚']},
+  {id:'disability', q:'Q7. 障害・特別支援が必要な子どもはいますか？', opts:['いない','障害手帳あり（身体・知的）','療育手帳あり','発達障害の診断あり（手帳なし）']},
+  {id:'lessons', q:'Q8. 習い事・塾を利用していますか？', opts:['していない','月1〜2万円程度','月3〜5万円','月5万円以上']},
+];
+
+let answers = {}, currentQ = 0;
+
+function renderQ() {
+  const q = QUESTIONS[currentQ];
+  document.getElementById('qNum').textContent = currentQ + 1;
+  const pct = Math.round(((currentQ + 1) / QUESTIONS.length) * 100);
+  document.getElementById('qPct').textContent = pct;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('backBtn').classList.toggle('hidden', currentQ === 0);
+  document.getElementById('questionContainer').innerHTML = `
+    <h2 class="text-lg font-bold text-gray-800 mb-4">${q.q}</h2>
+    <div class="space-y-2">
+      ${q.opts.map((opt, i) => `
+        <button onclick="selectOpt(${i})"
+          class="w-full text-left px-4 py-3 rounded-xl border-2 text-sm font-medium transition-all
+          ${answers[q.id] === i ? 'border-purple-500 bg-purple-50 text-purple-700' : 'border-gray-200 bg-gray-50 hover:border-purple-300 text-gray-700'}">
+          ${opt}
+        </button>`).join('')}
+    </div>`;
+}
+
+function selectOpt(i) { answers[QUESTIONS[currentQ].id] = i; renderQ(); }
+function prevQ() { if (currentQ > 0) { currentQ--; renderQ(); } }
+function nextQ() {
+  if (answers[QUESTIONS[currentQ].id] === undefined) { alert('選択してください'); return; }
+  if (currentQ < QUESTIONS.length - 1) { currentQ++; renderQ(); }
+  else showResult();
+}
+
+function showResult() {
+  document.getElementById('quizArea').classList.add('hidden');
+  document.getElementById('resultArea').classList.remove('hidden');
+
+  const age = answers.childAge;
+  const income = answers.income;
+  const nursery = answers.nursery;
+  const childleave = answers.childleave;
+  const single = answers.singleParent;
+  const disability = answers.disability;
+
+  const benefits = [];
+
+  // 児童手当（全員対象）
+  if (age <= 5) {
+    const monthly = income <= 3 ? 15000 : 10000;
+    benefits.push({
+      name: '児童手当',
+      amount: `月${monthly.toLocaleString()}円`,
+      status: 'eligible',
+      desc: '中学校卒業まで支給。0〜2歳は月15,000円、3歳〜小学生は月10,000円（第3子以降は増額）'
+    });
+  } else if (age <= 4) {
+    benefits.push({ name: '児童手当', amount: '月10,000円', status: 'eligible', desc: '中学校卒業まで支給' });
+  }
+
+  // 幼保無償化
+  if (age === 2 && nursery >= 1) {
+    benefits.push({ name: '幼児教育・保育の無償化', amount: '月最大37,000円', status: 'eligible', desc: '3〜5歳は無償、0〜2歳は住民税非課税世帯が対象' });
+  } else if (age === 2 && income <= 1) {
+    benefits.push({ name: '幼保無償化（0〜2歳）', amount: '月最大42,000円', status: 'eligible', desc: '住民税非課税世帯（年収270万円以下目安）が対象' });
+  }
+
+  // 高校無償化
+  if (age === 5 && income <= 3) {
+    benefits.push({ name: '高校等就学支援金', amount: '年最大118,800円', status: 'eligible', desc: '年収910万円未満の世帯が対象' });
+  }
+
+  // 育休給付金
+  if (childleave === 0) {
+    benefits.push({ name: '育児休業給付金', amount: '休前給与の67〜80%', status: 'eligible', desc: '雇用保険加入者が対象。子が1歳（延長で最大2歳）になるまで支給' });
+  }
+
+  // ひとり親
+  if (single === 1 || single === 2) {
+    benefits.push({ name: '児童扶養手当', amount: '月最大45,500円', status: 'eligible', desc: 'ひとり親家庭向け。年収等により支給額が変わります' });
+    benefits.push({ name: 'ひとり親家庭医療費助成', amount: '医療費の自己負担軽減', status: 'check', desc: '都道府県・市区町村によって内容が異なります' });
+  }
+
+  // 障害
+  if (disability >= 1) {
+    benefits.push({ name: '障害児通所給付費', amount: '通所費用の軽減', status: 'eligible', desc: '放課後等デイサービスなどの利用料が補助されます' });
+    if (disability <= 2) {
+      benefits.push({ name: '特別児童扶養手当', amount: '月34,900〜52,500円', status: 'eligible', desc: '中度以上の障害がある20歳未満の子を養育する場合' });
+    }
+  }
+
+  // 低所得
+  if (income <= 1) {
+    benefits.push({ name: '就学援助制度', amount: '給食費・学用品費など', status: 'eligible', desc: '小中学校の就学にかかる費用を補助。学校を通じて申請' });
+  }
+
+  // 誰でも
+  benefits.push({ name: '乳幼児医療費助成（マル乳）', amount: '医療費実質無料〜軽減', status: 'eligible', desc: 'ほぼ全都道府県で実施。18歳まで対象の自治体も増加中' });
+  benefits.push({ name: '出産育児一時金', amount: '50万円', status: age === 0 ? 'eligible' : 'past', desc: '健康保険に加入していれば出産時に支給' });
+
+  const bl = document.getElementById('benefitsList');
+  bl.innerHTML = benefits.map(b => `
+    <div class="rounded-xl p-3 border ${b.status === 'eligible' ? 'bg-green-50 border-green-200' : b.status === 'check' ? 'bg-yellow-50 border-yellow-200' : 'bg-gray-50 border-gray-200'}">
+      <div class="flex items-start justify-between">
+        <div class="flex-1">
+          <p class="font-bold text-sm ${b.status === 'eligible' ? 'text-green-800' : b.status === 'check' ? 'text-yellow-800' : 'text-gray-600'}">${b.status === 'eligible' ? '✅' : b.status === 'check' ? '⚠️' : '📌'} ${b.name}</p>
+          <p class="text-xs text-gray-600 mt-1">${b.desc}</p>
+        </div>
+        <span class="text-xs font-bold px-2 py-1 rounded-lg ml-2 ${b.status === 'eligible' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}">${b.amount}</span>
+      </div>
+    </div>`).join('');
+
+  const windows = [
+    '🏛 市区町村の子育て支援課・福祉課',
+    '🏥 出産育児一時金：加入している健康保険組合',
+    '💼 育児休業給付金：ハローワーク（会社経由）',
+    '🏫 就学援助：お子さんの学校または市区町村の教育委員会',
+    '🖥 こども家庭庁ポータル（www.cfa.go.jp）',
+  ];
+  document.getElementById('windowList').innerHTML = windows.map(w => `<p>• ${w}</p>`).join('');
+}
+
+function restart() {
+  answers = {}; currentQ = 0;
+  document.getElementById('resultArea').classList.add('hidden');
+  document.getElementById('quizArea').classList.remove('hidden');
+  renderQ();
+}
+
+renderQ();
+</script>
+</body>
+</html>
