@@ -58,28 +58,36 @@ img{max-width:100%;}
 .dv2-headcta{margin-left:auto;background:var(--dv-primary);color:#fff;text-decoration:none;font-weight:700;font-size:.86rem;padding:9px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 3px 10px rgba(16,185,129,.3);}
 .dv2-headcta:hover{background:var(--dv-primary-d);}
 @media(max-width:820px){.dv2-nav{display:none;}}
-/* ---- hero ---- */
-.dv2-hero{position:relative;color:#fff;background:#0f3d33 center/cover no-repeat;background-image:linear-gradient(100deg,rgba(6,78,59,.82) 0%,rgba(6,95,70,.55) 55%,rgba(6,95,70,.25) 100%),url("../assets/photos/photo_01.jpg");}
-.dv2-hero-inner{max-width:1080px;margin:0 auto;padding:64px 20px 70px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;}
-.dv2-badge{display:inline-block;background:var(--dv-accent);color:#fff;font-weight:800;font-size:.78rem;padding:6px 14px;border-radius:999px;margin-bottom:16px;box-shadow:0 3px 10px rgba(245,158,11,.4);}
-.dv2-hero h1{font-size:2.15rem;line-height:1.35;font-weight:900;margin:0 0 16px;text-shadow:0 2px 18px rgba(0,0,0,.35);}
-.dv2-hero h1 .em{color:#fde68a;}
-.dv2-hero-copy p{font-size:1rem;line-height:1.85;margin:0 0 24px;color:#ecfdf5;max-width:34em;text-shadow:0 1px 8px rgba(0,0,0,.3);}
+/* ---- hero (light / flat, chart-driven) ---- */
+.dv2-hero{position:relative;color:var(--dv-ink);overflow:hidden;background:linear-gradient(165deg,#ecfdf5 0%,#f0fdf4 42%,#ffffff 100%);border-bottom:1px solid #e6f2ec;}
+.dv2-hero::before{content:"";position:absolute;top:-110px;right:-90px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.14),transparent 70%);pointer-events:none;}
+.dv2-hero::after{content:"";position:absolute;bottom:-90px;left:-70px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.12),transparent 70%);pointer-events:none;}
+.dv2-hero-inner{position:relative;max-width:1080px;margin:0 auto;padding:58px 20px 64px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;z-index:1;}
+.dv2-badge{display:inline-block;background:#fffbeb;color:var(--dv-accent-d);font-weight:800;font-size:.78rem;padding:6px 14px;border-radius:999px;margin-bottom:16px;border:1px solid #fde68a;}
+.dv2-hero h1{font-size:2.2rem;line-height:1.34;font-weight:900;margin:0 0 16px;color:var(--dv-ink);}
+.dv2-hero h1 .em{color:var(--dv-primary);}
+.dv2-hero-copy p{font-size:1rem;line-height:1.85;margin:0 0 24px;color:#4b5563;max-width:34em;}
 .dv2-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px;}
-.dv2-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--dv-accent);color:#fff;font-weight:800;font-size:1.02rem;padding:15px 30px;border-radius:999px;text-decoration:none;box-shadow:0 6px 20px rgba(245,158,11,.45);transition:transform .15s;}
+.dv2-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--dv-accent);color:#fff;font-weight:800;font-size:1.02rem;padding:15px 30px;border-radius:999px;text-decoration:none;box-shadow:0 6px 20px rgba(245,158,11,.4);transition:transform .15s;}
 .dv2-btn-primary:hover{background:var(--dv-accent-d);transform:translateY(-2px);}
-.dv2-btn-ghost{display:inline-flex;align-items:center;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.7);color:#fff;font-weight:700;font-size:.96rem;padding:14px 24px;border-radius:999px;text-decoration:none;}
-.dv2-btn-ghost:hover{background:rgba(255,255,255,.25);}
-.dv2-hero-trust{display:flex;gap:18px;flex-wrap:wrap;font-size:.82rem;color:#d1fae5;}
-.dv2-hero-trust span::before{content:"✓ ";color:#6ee7b7;font-weight:900;}
-.dv2-hero-card{background:#fff;border-radius:18px;padding:22px;color:var(--dv-text);box-shadow:0 18px 50px rgba(0,0,0,.28);}
-.dv2-hero-card .lab{font-size:.8rem;color:#6b7280;}
+.dv2-btn-ghost{display:inline-flex;align-items:center;background:#fff;border:1.5px solid var(--dv-primary);color:var(--dv-primary-d);font-weight:700;font-size:.96rem;padding:14px 24px;border-radius:999px;text-decoration:none;}
+.dv2-btn-ghost:hover{background:var(--dv-mint);}
+.dv2-hero-trust{display:flex;gap:18px;flex-wrap:wrap;font-size:.82rem;color:#0f766e;font-weight:600;}
+.dv2-hero-trust span::before{content:"✓ ";color:var(--dv-primary);font-weight:900;}
+.dv2-hero-card{background:#fff;border-radius:18px;padding:22px;color:var(--dv-text);box-shadow:0 16px 44px rgba(16,40,30,.14);border:1px solid #eef2f0;}
+.dv2-hero-card .lab{font-size:.8rem;color:#6b7280;font-weight:700;}
 .dv2-hero-card .big{font-size:2.4rem;font-weight:900;color:var(--dv-primary-dd);line-height:1.1;}
 .dv2-hero-card .yen{font-size:1.5rem;font-weight:900;color:var(--dv-accent-d);}
-.dv2-hc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed #e5e7eb;font-size:.86rem;}
-.dv2-hc-row:last-child{border-bottom:none;}
-.dv2-hc-row .nm{color:#475569;}.dv2-hc-row .vl{font-weight:800;color:var(--dv-primary-dd);}
-@media(max-width:820px){.dv2-hero-inner{grid-template-columns:1fr;padding:44px 20px 48px;}.dv2-hero h1{font-size:1.7rem;}}
+/* mini bar chart inside hero card */
+.dv2-chart{margin:6px 0 14px;}
+.dv2-bar{display:flex;align-items:center;gap:10px;font-size:.8rem;margin:9px 0;}
+.dv2-bar .bl{width:84px;flex-shrink:0;color:#475569;font-weight:600;}
+.dv2-bar .bt{flex:1;height:10px;background:#eef2f0;border-radius:999px;overflow:hidden;}
+.dv2-bar .bt i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--dv-primary),var(--dv-primary-d));}
+.dv2-bar .bv{width:62px;flex-shrink:0;text-align:right;font-weight:800;color:var(--dv-primary-dd);}
+.dv2-bar.acc .bt i{background:linear-gradient(90deg,var(--dv-accent),var(--dv-accent-d));}
+.dv2-bar.acc .bv{color:var(--dv-accent-d);}
+@media(max-width:820px){.dv2-hero-inner{grid-template-columns:1fr;padding:40px 20px 44px;}.dv2-hero h1{font-size:1.7rem;}}
 /* ---- cards/grids ---- */
 .dv2-grid{display:grid;gap:18px;}
 .g4{grid-template-columns:repeat(4,1fr);}.g3{grid-template-columns:repeat(3,1fr);}.g2{grid-template-columns:repeat(2,1fr);}
@@ -112,6 +120,20 @@ img{max-width:100%;}
 .dv2-table thead th{background:var(--dv-mint);color:var(--dv-primary-dd);font-weight:800;}
 .dv2-table th.rowh{background:#f8fafc;color:#475569;font-weight:700;width:130px;}
 .dv2-table td .amt{font-weight:800;color:var(--dv-accent-d);}
+/* ---- amount layout + donut chart ---- */
+.dv2-amount-grid{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start;}
+@media(max-width:860px){.dv2-amount-grid{grid-template-columns:1fr;}}
+.dv2-donut-card{background:#fff;border:1px solid #eef2f0;border-radius:16px;padding:22px;box-shadow:0 6px 20px rgba(16,40,30,.06);text-align:center;}
+.dv2-donut{width:170px;height:170px;border-radius:50%;margin:6px auto 16px;position:relative;background:conic-gradient(var(--dv-primary) 0 38%,var(--dv-primary-d) 38% 58%,var(--dv-accent) 58% 78%,var(--dv-accent-d) 78% 90%,#34d399 90% 100%);box-shadow:0 8px 22px rgba(16,40,30,.1);}
+.dv2-donut::after{content:"";position:absolute;inset:30px;background:#fff;border-radius:50%;box-shadow:inset 0 1px 6px rgba(0,0,0,.05);}
+.dv2-donut .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1;}
+.dv2-donut .ctr b{font-size:1.25rem;font-weight:900;color:var(--dv-accent-d);line-height:1.1;}
+.dv2-donut .ctr span{font-size:.7rem;color:#94a3b8;font-weight:700;}
+.dv2-legend{text-align:left;font-size:.82rem;}
+.dv2-legend li{display:flex;align-items:center;gap:8px;padding:5px 0;color:#475569;list-style:none;}
+.dv2-legend{margin:0;padding:0;}
+.dv2-legend .dot{width:11px;height:11px;border-radius:3px;flex-shrink:0;}
+.dv2-legend .pc{margin-left:auto;font-weight:800;color:var(--dv-ink);}
 /* ---- testimonials ---- */
 .dv2-voice{background:#fff;border:1px solid #eef2f0;border-radius:16px;padding:20px;box-shadow:0 6px 20px rgba(16,40,30,.05);}
 .dv2-voice .who{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
@@ -174,16 +196,19 @@ img{max-width:100%;}
       <div class="dv2-hero-trust"><span>完全無料・登録不要</span><span>ブラウザで完結</span><span>2026年最新制度対応</span></div>
     </div>
     <div class="dv2-hero-card" aria-hidden="true">
-      <div class="lab">受給できる制度の目安</div>
-      <div style="display:flex;align-items:baseline;gap:16px;margin:4px 0 10px;">
+      <div class="lab">受給できる制度の目安（モデル世帯）</div>
+      <div style="display:flex;align-items:baseline;gap:14px;margin:5px 0 6px;">
         <div><span class="big">12</span><span style="font-size:.9rem;color:#6b7280;font-weight:700;">件</span></div>
         <div class="yen">¥1,248,000<span style="font-size:.8rem;color:#9ca3af;font-weight:600;">/年</span></div>
       </div>
-      <div class="dv2-hc-row"><span class="nm">児童手当</span><span class="vl">月15,000円</span></div>
-      <div class="dv2-hc-row"><span class="nm">幼児教育・保育の無償化</span><span class="vl">月最大37,000円</span></div>
-      <div class="dv2-hc-row"><span class="nm">出産育児一時金</span><span class="vl">50万円</span></div>
-      <div class="dv2-hc-row"><span class="nm">子ども医療費助成</span><span class="vl">自己負担軽減</span></div>
-      <a href="/childcare-support-finder/" style="display:block;text-align:center;margin-top:12px;background:var(--dv-primary);color:#fff;font-weight:800;padding:11px;border-radius:10px;text-decoration:none;">あなたの受給額を診断する</a>
+      <div class="dv2-chart">
+        <div class="dv2-bar"><span class="bl">児童手当</span><span class="bt"><i style="width:36%"></i></span><span class="bv">月1.5万</span></div>
+        <div class="dv2-bar"><span class="bl">幼保無償化</span><span class="bt"><i style="width:74%"></i></span><span class="bv">月3.7万</span></div>
+        <div class="dv2-bar acc"><span class="bl">出産一時金</span><span class="bt"><i style="width:100%"></i></span><span class="bv">50万円</span></div>
+        <div class="dv2-bar"><span class="bl">育休給付金</span><span class="bt"><i style="width:58%"></i></span><span class="bv">賃金67%</span></div>
+        <div class="dv2-bar acc"><span class="bl">児童扶養手当</span><span class="bt"><i style="width:90%"></i></span><span class="bv">月4.5万</span></div>
+      </div>
+      <a href="/childcare-support-finder/" style="display:block;text-align:center;margin-top:6px;background:var(--dv-primary);color:#fff;font-weight:800;padding:11px;border-radius:10px;text-decoration:none;">あなたの受給額を診断する</a>
     </div>
   </div>
 </section>
@@ -299,6 +324,20 @@ img{max-width:100%;}
   <div class="dv2">
     <h2 class="dv2-h2">受給額の<span class="em">目安</span></h2>
     <p class="dv2-sub">代表的な制度の支給額の一例です。世帯の状況により金額は変わります。</p>
+    <div class="dv2-amount-grid">
+    <div class="dv2-donut-card">
+      <h3 style="font-size:.95rem;font-weight:800;color:var(--dv-ink);margin:0 0 8px;">年間受給額の内訳イメージ</h3>
+      <div class="dv2-donut" role="img" aria-label="モデル世帯の年間受給額の内訳">
+        <div class="ctr"><b>約124万円</b><span>年間合計の目安</span></div>
+      </div>
+      <ul class="dv2-legend">
+        <li><span class="dot" style="background:var(--dv-primary)"></span>児童手当<span class="pc">38%</span></li>
+        <li><span class="dot" style="background:var(--dv-primary-d)"></span>幼保無償化<span class="pc">20%</span></li>
+        <li><span class="dot" style="background:var(--dv-accent)"></span>出産育児一時金<span class="pc">20%</span></li>
+        <li><span class="dot" style="background:var(--dv-accent-d)"></span>医療費助成<span class="pc">12%</span></li>
+        <li><span class="dot" style="background:#34d399"></span>その他支援<span class="pc">10%</span></li>
+      </ul>
+    </div>
     <div class="dv2-tablewrap">
       <table class="dv2-table">
         <thead><tr><th>制度</th><th>対象</th><th>支給額の目安</th></tr></thead>
@@ -311,6 +350,7 @@ img{max-width:100%;}
           <tr><th class="rowh">児童扶養手当</th><td>ひとり親世帯</td><td><span class="amt">月 最大45,500円</span></td></tr>
         </tbody>
       </table>
+    </div>
     </div>
     <p style="text-align:center;font-size:.78rem;color:#94a3b8;margin-top:12px;">※2026年時点の制度に基づく目安です。最新の金額・条件は各窓口にご確認ください。</p>
   </div>
